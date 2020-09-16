@@ -12,4 +12,4 @@ push: login
 	@docker push $(image)
 
 deploy:
-	@cat deployment.yaml | sed "s|IMAGEVERSION|$(version)|g" | kubectl apply -f -
+	@cat deployment.yaml | sed "s|IMAGEVERSION|$(version)|g;s|NAMSPACE|$(namespace)g" | kubectl apply -f -
